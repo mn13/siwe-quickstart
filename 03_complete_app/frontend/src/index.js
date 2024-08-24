@@ -1,7 +1,6 @@
 import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
 
-const scheme = window.location.protocol.slice(0, -1);
 const domain = window.location.host;
 const origin = window.location.origin;
 const provider = new BrowserProvider(window.ethereum);
@@ -12,7 +11,6 @@ async function createSiweMessage(address, statement) {
         credentials: 'include',
     });
     const message = new SiweMessage({
-        scheme,
         domain,
         address,
         statement,
